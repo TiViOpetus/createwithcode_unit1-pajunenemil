@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playercontroller : MonoBehaviour
+public class camrecontroller : MonoBehaviour
 {
-    public float speed = 20f;
+    private Vector3 offset;
+
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        offset = transform.position;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        //Move car forward
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.position = player.transform.position + offset;
     }
 }
